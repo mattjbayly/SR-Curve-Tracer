@@ -1,0 +1,136 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    min-width: 100px; /* minimum width of column */
+}
+
+/* Optional: Responsive behavior */
+@media (max-width: 600px) {
+    .column {
+        flex-basis: 100%; /* full width on small screens */
+    }
+}
+
+#canvas {
+	border: 1px solid black;
+}
+
+
+.mcon {
+    position: relative;
+    height: 200px; 
+}
+
+.align-bottom {
+    position: absolute;
+    bottom: 10px;
+}
+
+.mconx {
+    display: flex;
+    justify-content: space-between; /* Aligns children to the left and right */
+    max-width: 95%; /* Adjust as needed */
+}
+
+.left-div, .right-div {
+    max-width: 30%; /* Adjust the max-width as needed */
+}
+
+/* Optional: if you want the divs to take equal width */
+.left-div, .right-div {
+    flex: 1;
+}
+
+.mar-right {
+    margin-right: 5px;
+}
+
+
+
+#redrawRectangle {
+    border: 3px solid red; /* Red border, 2px thick */
+    /* Optional: Adjust padding as needed padding: 10px 20px; */
+    background-color: white; /* Optional: Background color */
+    color: black; /* Optional: Text color */
+    font-size: 16px; /* Optional: Font size */
+    cursor: pointer; /* Optional: Changes the cursor on hover */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+
+#redrawRectangle:hover {
+    background-color: rgb(255, 177, 177); /* Optional: Background color on hover */
+}
+
+
+#traceLine {
+    border: 3px solid blue; /* Red border, 2px thick */
+    /* Optional: Adjust padding as needed padding: 10px 20px; */
+    background-color: white; /* Optional: Background color */
+    color: black; /* Optional: Text color */
+    font-size: 16px; /* Optional: Font size */
+    cursor: pointer; /* Optional: Changes the cursor on hover */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+
+#traceLine:hover {
+    background-color: rgb(191, 209, 255); /* Optional: Background color on hover */
+}
+
+#traceLine2 {
+    border: 3px solid green; /* Red border, 2px thick */
+    /* Optional: Adjust padding as needed padding: 10px 20px; */
+    background-color: white; /* Optional: Background color */
+    color: black; /* Optional: Text color */
+    font-size: 16px; /* Optional: Font size */
+    cursor: pointer; /* Optional: Changes the cursor on hover */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+
+#traceLine2:hover {
+    background-color: rgb(197, 255, 191); /* Optional: Background color on hover */
+}
+
+#traceLine3 {
+    border: 3px solid purple; /* Red border, 2px thick */
+    /* Optional: Adjust padding as needed padding: 10px 20px; */
+    background-color: white; /* Optional: Background color */
+    color: black; /* Optional: Text color */
+    font-size: 16px; /* Optional: Font size */
+    cursor: pointer; /* Optional: Changes the cursor on hover */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+
+#traceLine3:hover {
+    background-color: rgb(237, 188, 255); /* Optional: Background color on hover */
+}
+
+
+#traceLine4 {
+    border: 3px solid orange; /* Red border, 2px thick */
+    /* Optional: Adjust padding as needed padding: 10px 20px; */
+    background-color: white; /* Optional: Background color */
+    color: black; /* Optional: Text color */
+    font-size: 16px; /* Optional: Font size */
+    cursor: pointer; /* Optional: Changes the cursor on hover */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+
+#traceLine4:hover {
+    background-color: rgb(255, 233, 188); /* Optional: Background color on hover */
+}
+

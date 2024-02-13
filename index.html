@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stressor Response Curve Trace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row mb-1" style = "padding-bottom: 20px;">
+            <div class="col-md-12">
+                Step 1. Upload (or paste Ctrl+v) a screenshot of a stressor-response curve from the literature
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md">
+                <input type="file" id="imageLoader" name="imageLoader" class="form-control-file" />
+            </div>
+        </div>
+
+        <div class="row mb-1" style = "padding-bottom: 20px;">
+            <div class="col-md-12">
+                Step 2. Define x and y axis limits for inner plot area
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-md-2">
+                <div class = "mcon" id = "ylimdiv">
+                    <div>
+                        <label>Set upper y limit (top):</label>
+                        <input type="number" id="upperY" style = "max-width: 90%;"  />
+                    </div>
+                    <div class = "align-bottom">
+                        <label>Set lower Y limit (bottom):</label>
+                        <input type="number" id="lowerY" style = "max-width: 90%;" />
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-7">
+                <canvas id="canvas" width="600" height="200" class="border"></canvas>
+                <div class = "mconx">
+                    <div class="left-div">
+                        <label>Set lower X limit (left):</label>
+                        <input type="number" id="lowerX" class="form-control" />
+                    </div>
+                    <div class="right-div">
+                        <label>Set upper X limit (right):</label>
+                        <input type="number" id="upperX" class="form-control" />
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-3" style = "z-index: -999">
+                <canvas id="magnifyingCanvas" width="150px" height="200" style="border:1px solid black;"></canvas>
+                <div id="info"></div>
+                <div id="inforect" style = "display: none;"></div>
+                <div id="infosize" style = "display: none;"></div>
+                <div id="infoscale" style = "display: none;"></div>
+                <div id="infolower" style = "display: none;"></div>
+                <div id="infoupper" style = "display: none;"></div>
+                <div id="infotrans"></div>
+            </div>
+        </div>
+        
+        
+
+        <div class="row">
+            <div class="column"><button id="redrawRectangle">3. Draw Plot Area (rectangle)</button>
+                Click on the plot area to draw a rectangle that covers the extent of the inner plot area. Draw the rectangle starting from the top left corner (upper left) and ending in the bottom right corner (bottom right).
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column"><button id="traceLine">4. Trace the mean response line</button> trace the mean response line in the left to right direction. Click to add points.</div>
+            <div class="column"><button id="traceLine2">5. Trace SD (optional)</button> (optionally) click to add a line for the SD (above or below mean response).</div>
+            <div class="column"><button id="traceLine3">6. Trace lower limit (optional)</button> (optionally) trace a line to define the lower limit.</div>
+            <div class="column"><button id="traceLine4">7. Trace upper limit (optional)</button> (optionally) trace a line to define the upper limit.</div>
+        </div>
+
+
+        <div class="row">
+            <div class="column">
+
+                <div style = "margin-bottom: 10px;">
+                    <button id="getData">8. Generate Table</button> Extract and generate a formatted stressor-response data table.
+                </div>
+
+                <div style = "margin-bottom: 10px;">
+                    <label>(optional) Scale y-axis values to a maximum response of:</label>
+                    <input type="number" id="maxYScale" class="form-control" style = "max-width: 150px;" /><br>
+                </div>
+
+                <div style = "margin-bottom: 10px;">
+                    Specify the scale for the response the y-axis:<br>
+                    <input type="radio" id="z0t100" name="ypctscale" value="100" checked="checked">
+                    <label for="z0t100">0 - 100%</label><br>
+                    <input type="radio" id="z0t1" name="ypctscale" value="1">
+                    <label for="z0t1">0 - 1</label><br>  
+                    <input type="radio" id="other" name="ypctscale" value="999">
+                    <label for="other">Other</label><br><br>
+                </div>
+
+            </div>
+            <div class="column">
+                <button id="exportCsv" style = "margin-bottom: 10px;">9. Export Data (.csv)</button>
+
+                <table id="dataTable" border="1">
+                    <thead>
+                        <tr>
+                            <th>Stressor (X)</th>
+                            <th>Mean System Capacity (%)</th>
+                            <th>SD</th>
+                            <th>low.limit</th>
+                            <th>up.limit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataBody">
+                        <!-- Data rows will be added here -->
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
